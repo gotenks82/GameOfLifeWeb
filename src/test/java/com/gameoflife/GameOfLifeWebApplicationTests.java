@@ -1,8 +1,8 @@
 package com.gameoflife;
 
-import com.gameoflife.model.CellWrapper;
-import com.gameoflife.model.EvolutionWrapper;
-import com.gameoflife.model.UniverseWrapper;
+import com.gameoflife.wrapper.CellWrapper;
+import com.gameoflife.wrapper.EvolutionWrapper;
+import com.gameoflife.wrapper.UniverseWrapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

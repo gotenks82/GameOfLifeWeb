@@ -1,13 +1,13 @@
-package com.gameoflife.model;
+package com.gameoflife.evolution;
 
 import com.gameoflife.model.Universe;
 
 /**
  * Created by alexpedini on 17/09/16.
  */
-public class Evolution {
+public class ConwayEvolution implements Evolution {
 
-    public static Universe evolve(Universe universe) {
+    public Universe evolve(Universe universe) {
         Universe evolved = new Universe(universe.getSizeX(), universe.getSizeY());
 
         for (int i = 0; i < evolved.getSizeX(); i++) {
@@ -29,7 +29,7 @@ public class Evolution {
      * @param y
      * @return
      */
-    public static boolean nextState(Universe universe, int x, int y) {
+    public boolean nextState(Universe universe, int x, int y) {
         int aliveNeighbours = universe.countAliveNeighbours(x,y);
         return (!(aliveNeighbours < 2 || aliveNeighbours > 3)) && (aliveNeighbours != 2 || universe.getState(x,y));
     }

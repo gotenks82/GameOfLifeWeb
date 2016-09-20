@@ -1,4 +1,4 @@
-package com.gameoflife.model;
+package com.gameoflife.wrapper;
 
 import javafx.scene.control.Cell;
 

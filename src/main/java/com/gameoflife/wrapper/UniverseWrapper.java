@@ -1,4 +1,6 @@
-package com.gameoflife.model;
+package com.gameoflife.wrapper;
+
+import com.gameoflife.model.Universe;
 
 import java.util.ArrayList;
 import java.util.List;
