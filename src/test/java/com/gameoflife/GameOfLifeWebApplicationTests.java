@@ -5,6 +5,9 @@ import com.gameoflife.wrapper.EvolutionWrapper;
 import com.gameoflife.wrapper.UniverseWrapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.embedded.EmbeddedWebApplicationContext;
+import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,8 +18,18 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class GameOfLifeWebApplicationTests {
+
+	@Autowired
+	EmbeddedWebApplicationContext server;
+
+	@LocalServerPort
+	int port;
+
+	private String getBaseUrl() {
+		return "http://localhost:" + port;
+	}
 
 	@Test
 	public void evolveUniverse() {
@@ -31,7 +44,7 @@ public class GameOfLifeWebApplicationTests {
 		aliveCells.add(new CellWrapper(3,2));
 		request.setAliveCells(aliveCells);
 
-		UniverseWrapper response = rest.postForObject("http://localhost:8080/evolve",request, UniverseWrapper.class);
+		UniverseWrapper response = rest.postForObject(getBaseUrl()+"/evolve",request, UniverseWrapper.class);
 
 		assertEquals(10, response.getSizeX());
 		assertEquals(15, response.getSizeY());
