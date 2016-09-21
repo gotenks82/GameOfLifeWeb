@@ -1,7 +1,5 @@
 package com.gameoflife.wrapper;
 
-import javafx.scene.control.Cell;
-
 /**
  * Created by alexpedini on 17/09/16.
  */
