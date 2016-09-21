@@ -39,7 +39,26 @@ public class UniverseWrapper {
         return sizeY;
     }
 
+    public void setSizeX(int sizeX) {
+        this.sizeX = sizeX;
+    }
+
+    public void setSizeY(int sizeY) {
+        this.sizeY = sizeY;
+    }
+
+    public void setAliveCells(List<CellWrapper> aliveCells) {
+        this.aliveCells = aliveCells;
+    }
+
     public List<CellWrapper> getAliveCells() {
         return aliveCells;
+    }
+
+    public Universe toUniverse() {
+        Universe universe = new Universe(sizeX, sizeY);
+        aliveCells.forEach((cell) -> universe.setState(cell.getX(), cell.getY(), true));
+
+        return universe;
     }
 }

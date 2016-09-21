@@ -1,7 +1,6 @@
 package com.gameoflife;
 
 import com.gameoflife.wrapper.CellWrapper;
-import com.gameoflife.wrapper.EvolutionWrapper;
 import com.gameoflife.wrapper.UniverseWrapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +34,7 @@ public class GameOfLifeWebApplicationTests {
 	public void evolveUniverse() {
 		TestRestTemplate rest = new TestRestTemplate();
 
-		EvolutionWrapper request = new EvolutionWrapper();
+		UniverseWrapper request = new UniverseWrapper();
 		request.setSizeX(10);
 		request.setSizeY(15);
 		List<CellWrapper> aliveCells = new ArrayList<CellWrapper>();
